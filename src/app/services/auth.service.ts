@@ -14,7 +14,7 @@ export class AuthService {
 
   login( user: UserLogin ): any{
     try {
-      return this.http.post("https://backendmikaza.onrender.com/api/user/loginUser", user );
+      return this.http.post("http://localhost:8080/api/user/loginUser", user );
     } catch (error: any) {
       this.toastServ.showError(error.error, 'Error');
       return error;
@@ -23,7 +23,7 @@ export class AuthService {
 
   validarVerificado( token: string ): any{
     try {
-      return this.http.get(`https://backendmikaza.onrender.com/api/user/verifyUser/${token}`);
+      return this.http.get(`http://localhost:8080/api/user/verifyUser/${token}`);
     } catch (error) {
       this.toastServ.showError('Error interno al validar verificacion', 'Error');
       return error;
@@ -33,7 +33,7 @@ export class AuthService {
   validarExiste( email: string ): any{
 
     try {
-      return this.http.get(`https://backendmikaza.onrender.com/api/user/getUser/${email}`);
+      return this.http.get(`http://localhost:8080/api/user/getUser/${email}`);
     } catch (error) {
         this.toastServ.showError('Error interno al validar usuario', 'Error');
         return error;
@@ -42,7 +42,7 @@ export class AuthService {
 
   register( user: UserRegister ): any{
     try{
-      return this.http.post<UserRegister>('https://backendmikaza.onrender.com/api/user/createUser', user);
+      return this.http.post<UserRegister>('http://localhost:8080/api/user/createUser', user);
     } catch (error) {
       this.toastServ.showError('Error interno al registrar usuario', 'Error');
       return error;
