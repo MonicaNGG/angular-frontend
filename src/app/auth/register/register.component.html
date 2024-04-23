@@ -1,0 +1,24 @@
+<form autocomplete="off" [formGroup]="registroForm" (ngSubmit)="submitForm()">
+    <h1>Formulario de Registro </h1>
+    <input type="text" formControlName="name"       placeholder="Nombre">
+    <input type="text" formControlName="lastName"   placeholder="Apellidos">
+
+
+    <span>Seleccione un tipo de documento</span>
+
+    <select class="form-control mt-3" formControlName="documentType">
+
+        <option id="1" value="Cedula Ciudadania" selected>Cédula de ciudadanía</option>
+        <option id="2" value="Cedula Extranjeria">Cédula de extranjería</option>
+        <option id="3" value="Tarjeta Identidad">Tarjeta de identidad</option>
+        <option id="4" value="Pasaporte">Pasaporte</option>
+    </select>
+
+    <input type="text"        formControlName="documentNumber"    placeholder="Número de documento (No usar Puntos '.')">
+    <input type="number"        formControlName="phone"             placeholder="Número de teléfono">
+    <input type="email"         formControlName="email"             placeholder="Direccion de correo electronico">
+    <input type="password"      formControlName="password"          placeholder="Ingrese su contraseña">
+
+    <button class="button" type="submit">Registrarse</button>
+    <p class="link"><a routerLink="/login" class="link_url">¿Ya tienes cuenta?</a></p>
+</form>
