@@ -20,4 +20,8 @@ export class ToastService {
   showWarning(message: string, title: string): void {
     this.toastr.warning(message, title, { timeOut: 5000});
   }
+
+  waiting( message: string, title: string ): void{
+    this.toastr.info(message, title, { timeOut: 5000, progressBar: true});
+  }
 }

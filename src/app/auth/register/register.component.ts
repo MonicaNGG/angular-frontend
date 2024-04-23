@@ -161,13 +161,12 @@ export class RegisterComponent {
   } 
 
   registerUser( user: UserRegister ){
-    this._toastServ.showSuccess('Por favor espere mientras validamos la informacion', 'Registrando Usuario')
+    this._toastServ.waiting('Por favor espere mientras validamos la informacion (Esto puede tomar algun tiempo, espere la notificacion)', 'Registrando Usuario')
     try {
         this.authServ.register( user )?.subscribe({
 
           next: (resp: any) => {
 
-            console.log( resp )
             this._toastServ.showSuccess('Por favor valide su cuenta en el correo ingresado', 'Registro exitoso')
             this.router.navigate(['/login'])
           },
@@ -175,13 +174,13 @@ export class RegisterComponent {
 
             let fistKey = Object.keys(err.error)[0]
             this._toastServ.showError( ( err.error[fistKey] ) ? err.error[fistKey] : "Revise sus datos" , 'Error al registrar el usuario')
-            console.log( err )
             throw new Error(err)
           }
         })
     } catch (error: any) {
-      this._toastServ.showError('Error al registrar el usuario', 'Error interno') 
-      console.error(error.error.error)
+
+      let fistKey = Object.keys(error.error)[0]
+      this._toastServ.showError('Error al registrar el usuario ' + ( error.error[fistKey] ) ? error.error[fistKey] : "Revise sus datos" , 'Error interno') 
     }
   }
 }
