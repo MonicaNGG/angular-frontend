@@ -19,6 +19,6 @@
     <input type="email"         formControlName="email"             placeholder="Direccion de correo electronico">
     <input type="password"      formControlName="password"          placeholder="Ingrese su contraseña">
 
-    <button class="button" type="submit">Registrarse</button>
+    <button class="button" type="submit" [disabled]="loading">Registrarse</button>
     <p class="link"><a routerLink="/login" class="link_url">¿Ya tienes cuenta?</a></p>
 </form>

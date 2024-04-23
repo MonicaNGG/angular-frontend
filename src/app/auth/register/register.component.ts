@@ -22,6 +22,8 @@ export class RegisterComponent {
 
   constructor( private _toastServ: ToastService, private authServ: AuthService, private router: Router ){}
 
+  loading: boolean = false;
+
   ngOnInit(): void {
     this._toastServ.showSuccess('Bienvenido', 'Registro');
   }
@@ -162,23 +164,25 @@ export class RegisterComponent {
 
   registerUser( user: UserRegister ){
     this._toastServ.waiting('Por favor espere mientras validamos la informacion (Esto puede tomar algun tiempo, espere la notificacion)', 'Registrando Usuario')
+    this.loading = true
     try {
         this.authServ.register( user )?.subscribe({
-
           next: (resp: any) => {
+            
 
             this._toastServ.showSuccess('Por favor valide su cuenta en el correo ingresado', 'Registro exitoso')
+            this.loading = false
             this.router.navigate(['/login'])
           },
           error: (err: any) =>{
-
+            this.loading = false
             let fistKey = Object.keys(err.error)[0]
             this._toastServ.showError( ( err.error[fistKey] ) ? err.error[fistKey] : "Revise sus datos" , 'Error al registrar el usuario')
             throw new Error(err)
           }
         })
     } catch (error: any) {
-
+      this.loading = false
       let fistKey = Object.keys(error.error)[0]
       this._toastServ.showError('Error al registrar el usuario ' + ( error.error[fistKey] ) ? error.error[fistKey] : "Revise sus datos" , 'Error interno') 
     }
