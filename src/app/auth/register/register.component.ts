@@ -33,8 +33,7 @@ export class RegisterComponent {
     documentNumber  : ['',  Validators.required ],
     phone           : ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
     email           : ['', [Validators.required, Validators.email]],
-    password        : ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/)
-  ]]
+    password        : ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()-_=+{}|;:',.<>?/\\[\]~`]{8,30}$/)]]
   })
 
   validateRequireds(): boolean {
@@ -162,7 +161,7 @@ export class RegisterComponent {
   } 
 
   registerUser( user: UserRegister ){
-    console.log( user )
+    this._toastServ.showSuccess('Por favor espere mientras validamos la informacion', 'Registrando Usuario')
     try {
         this.authServ.register( user )?.subscribe({
 
