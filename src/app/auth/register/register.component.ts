@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule, provideRouter } from '@angular/router';
+import { Router, RouterModule, provideRouter } from '@angular/router';
 import { ToastService } from '../../services/toast.service';
 import { UserRegister } from '../interfaces/UserRegister';
 import { AuthService } from '../../services/auth.service';
@@ -20,7 +20,7 @@ export class RegisterComponent {
 
   @Inject(FormBuilder) fb: FormBuilder = new FormBuilder();
 
-  constructor( private _toastServ: ToastService, private authServ: AuthService ){}
+  constructor( private _toastServ: ToastService, private authServ: AuthService, private router: Router ){}
 
   ngOnInit(): void {
     this._toastServ.showSuccess('Bienvenido', 'Registro');
@@ -33,7 +33,7 @@ export class RegisterComponent {
     documentNumber  : ['',  Validators.required ],
     phone           : ['3116101404', [Validators.required, Validators.pattern(/^\d{10}$/)]],
     email           : ['jur@mail.com ', [Validators.required, Validators.email]],
-    password        : ['Jur123DS', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,30}$/)
+    password        : ['Jur123DS', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/)
   ]]
   })
 
@@ -68,7 +68,7 @@ export class RegisterComponent {
         break;
 
       case "Tarjeta Identidad": 
-      identControl?.setValidators(Validators.pattern(/^[0-9]{,12}$/));
+      identControl?.setValidators(Validators.pattern(/^[0-9]{10,12}$/));
       errorValidacion = "La tarjeta de identidad debe ser válida (entre 10 y 12 caracteres numericos)";
         break;
 
@@ -117,7 +117,7 @@ export class RegisterComponent {
 
     if( key === 'password'){
       key = "Contraseña"
-      this._toastServ.showWarning(`La contraseña debe tener entre 6-30 caracteres \n - Minimo una Mayuscula \n - Minimo un numero`, `Error en el campo: ${key}`);
+      this._toastServ.showWarning(`La contraseña debe tener entre 8-30 caracteres \n - Minimo una Mayuscula \n - Minimo un numero`, `Error en el campo: ${key}`);
     }
 
     if( key == 'phone') {
@@ -169,10 +169,13 @@ export class RegisterComponent {
           next: (resp: any) => {
 
             console.log( resp )
-            this._toastServ.showSuccess('Usuario registrado correctamente', 'Registro')
+            this._toastServ.showSuccess('Por favor valide su cuenta en el correo ingresado', 'Registro exitoso')
+            this.router.navigate(['/login'])
           },
           error: (err: any) =>{
-            this._toastServ.showError( ( err.error.error ) ? err.error.error : err.error.email, 'Error al registrar el usuario')
+
+            let fistKey = Object.keys(err.error)[0]
+            this._toastServ.showError( ( err.error[fistKey] ) ? err.error[fistKey] : "Revise sus datos" , 'Error al registrar el usuario')
             console.log( err )
             throw new Error(err)
           }
