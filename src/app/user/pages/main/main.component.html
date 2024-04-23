@@ -1,0 +1,15 @@
+<div class="container" *ngIf="usuario">
+
+    <h1>Bienvenido {{ usuario.name }}</h1>
+    <hr>
+    <br>
+    <ul>
+        <li>Nombre: {{ usuario.name }}</li>
+        <li>Apellido: {{ usuario.lastName }}</li>
+        <li>Tipo de documento: {{ usuario.documentType }}</li>
+        <li>Numero de documento: {{ usuario.documentNumber }}</li>
+        <li>Numero de telefono: {{ usuario.phone }}</li>
+        <li>Correo Electronico: {{ usuario.email }}</li>
+    </ul>
+    <button (click)="cerrar()">Cerrar Sesion</button>        
+</div>
