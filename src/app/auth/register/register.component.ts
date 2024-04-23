@@ -27,13 +27,13 @@ export class RegisterComponent {
   }
 
   registroForm: FormGroup = this.fb.group({
-    name            : ['Jurgen', [Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/), Validators.minLength(3), Validators.maxLength(30)]],
-    lastName        : ['San', [Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/), Validators.minLength(3), Validators.maxLength(30)]],
+    name            : ['', [Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/), Validators.minLength(3), Validators.maxLength(30)]],
+    lastName        : ['', [Validators.required, Validators.pattern(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/), Validators.minLength(3), Validators.maxLength(30)]],
     documentType    : ['',  Validators.required],
     documentNumber  : ['',  Validators.required ],
-    phone           : ['3116101404', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-    email           : ['jur@mail.com ', [Validators.required, Validators.email]],
-    password        : ['Jur123DS', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/)
+    phone           : ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
+    email           : ['', [Validators.required, Validators.email]],
+    password        : ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$/)
   ]]
   })
 
