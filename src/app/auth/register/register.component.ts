@@ -58,6 +58,7 @@ export class RegisterComponent {
     identControl?.clearValidators();
 
     switch (identType) {
+
       case "Cedula Ciudadania": 
       identControl?.setValidators(Validators.pattern(/^[0-9]{6,12}$/));
       errorValidacion = "La cédula debe ser válida (entre 6 y 12 caracteres numericos)";
@@ -101,6 +102,7 @@ export class RegisterComponent {
           
           Object.keys( control.errors || {} ).forEach( keyError => {
 
+            //La validacion de el document number es diferente a las demas
             if( keyError !== 'required' && key !== 'documentNumber') this.showWarningTitlesValidations( key, keyError )
           })
         }
@@ -146,7 +148,6 @@ export class RegisterComponent {
     if ( this.validateRequireds() ) return 
     if( this.registroForm.invalid ) return 
 
-    console.log(this.registroForm.value)
 
     const usuario: UserRegister = {
       name: this.registroForm.get('name')?.value,
@@ -165,6 +166,7 @@ export class RegisterComponent {
   registerUser( user: UserRegister ){
     this._toastServ.waiting('Por favor espere mientras validamos la informacion (Esto puede tomar algun tiempo, espere la notificacion)', 'Registrando Usuario')
     this.loading = true
+    
     try {
         this.authServ.register( user )?.subscribe({
           next: (resp: any) => {

@@ -1,15 +1,123 @@
 <div class="container" *ngIf="usuario">
 
-    <h1>Bienvenido {{ usuario.name }}</h1>
-    <hr>
-    <br>
-    <ul>
-        <li>Nombre: {{ usuario.name }}</li>
-        <li>Apellido: {{ usuario.lastName }}</li>
-        <li>Tipo de documento: {{ usuario.documentType }}</li>
-        <li>Numero de documento: {{ usuario.documentNumber }}</li>
-        <li>Numero de telefono: {{ usuario.phone }}</li>
-        <li>Correo Electronico: {{ usuario.email }}</li>
-    </ul>
-    <button (click)="cerrar()">Cerrar Sesion</button>        
+    <div class="container_second">
+        <div class="user_container">
+            <div class="first_user_c">
+                <div class="icon_cont">
+                    <img src="../../../../assets/usuario/profile_pic.png" alt="user" class="icon_user">
+                </div>
+                <div class="user_info">
+                    <p class="title_info">Bienvenido {{ usuario.name }} {{ usuario.lastName}}</p>
+                    <p>{{ usuario.documentType }} {{ usuario.documentNumber }}</p>
+                    <p>Contacto: {{ usuario.email }} / {{ usuario.phone }}</p>
+                </div>
+            </div>
+
+            <div class="second_user_c">
+                <button (click)="cerrar()">Cerrar Sesion</button> 
+            </div>  
+        </div>
+
+
+
+        <div class="buscador_cont">
+            <form class="buscador_form" [formGroup]="buscador">
+                <div class="row">
+
+
+                    <div class="col_input">
+                        <p>Ciudad</p>
+                        <select formControlName="city">
+                            <option value="Bogotá" selected>Bogotá</option>
+                        </select>
+                    </div>
+
+                    <div class="col_input">
+                        <p>Zona</p>
+                        <select formControlName="zone">
+                            <option value="Norte">Norte</option>
+                            <option value="Noroccidental">Noroccidental</option>
+                            <option value="Occidental">Occidental</option>
+                            <option value="Centro">Centro</option>
+                            <option value="Sur">Sur</option>
+                            <option value="Suroccidental">Suroccidental</option>
+                            <option value="Suroriental">Suroriental</option>
+                        </select>
+                    </div>
+
+                    <div class="col_input">
+                        <p>Precio por Persona</p>
+                        <input  type="number" 
+                                min="10000" 
+                                class="input_search"
+                                formControlName="price">
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col_input">
+                        <p>Fechas</p>
+                        <div class="fechas_cont">
+                            <div>
+                                <span>LLEGADA</span>
+                                <input  type="date" 
+                                        class="input_search"
+                                        formControlName="entryDate">
+                            </div>
+
+                            <div>
+                                <span>SALIDA</span>
+                                <input  type="date" 
+                                        class="input_search"
+                                        formControlName="exitDate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col_input">
+                        <p>Número de Personas</p>
+                        <input  type="number" 
+                                min="1" 
+                                class="input_search"
+                                formControlName="numberPeople">
+                    </div>
+
+                    <div class="col_input">
+                        <p>Tipo de Alojamiento</p>
+                        <select formControlName="accommodationType">
+                            <option value="Habitación Privada">Habitación Privada</option>
+                            <option value="Casa o Apartamento Entero">Casa o Apartamento Entero</option>
+                            <option value="Habitación Compartida">Habitación Compartida</option>
+                            <option value="Alojamientos Únicos">Alojamientos Únicos</option>
+                            <option value="Alquiler Largo Plazo">Alquiler Largo Plazo</option>
+                        </select>
+                    </div>
+    
+                </div>
+                <div class="row">
+                    
+                    <div class="col_input col_input_check">
+                        <p>Servicios Adicionales</p>
+                        <select formControlName="additionalServices">
+                            <option value="WiFi">WiFi Privado</option>
+                            <option value="Cocina Completa">Cocina Completa</option>
+                            <option value="Gimnasio">Gimnasio</option>
+                            <option value="Piscina">Piscina</option>
+                            <option value="Lavanderia">Lavanderia</option>
+                            <option value="Cocina Completa">Cocina Completa</option>
+                        </select>
+                    </div> 
+                    <div class="col_input buscar_cont">
+                        <button class="buscar_but"
+                                (click)="buscar()">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+    <app-finded-properties></app-finded-properties>
 </div>
