@@ -5,9 +5,9 @@
         <h1>No se han encontrado inmuebles</h1>
     </div>
 
-    <div *ngFor="let item of properties">
+    <div *ngFor="let item of properties; let i = index">
         
-        <div class="card">
+        <div class="card" (click)="mostrarModal(i)">
             <div class="container-img" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
             </div>
 
@@ -30,3 +30,5 @@
         </div>
     </div>
 </div>
+
+<app-modalproperty></app-modalproperty>

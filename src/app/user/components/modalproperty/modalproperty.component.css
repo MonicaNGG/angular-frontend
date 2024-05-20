@@ -1,0 +1,55 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: white;
+    width: 500px;
+    height: 700px;
+    border-radius: 20px;
+}
+
+
+
+.container-img{
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-info{
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.zona-c, .capaci-c, .precio-c, .dispo-c{
+    font-size: 20px;
+    font-weight: 300;
+    color: rgb(58, 58, 58);
+    margin-bottom: 5px;
+}
