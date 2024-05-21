@@ -1,4 +1,4 @@
-.container{
+.container1{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7); 
@@ -17,7 +17,7 @@
     align-items: center;
 }
 
-.card{
+.card1{
     background-color: white;
     width: 500px;
     height: 700px;
@@ -26,7 +26,7 @@
 
 
 
-.container-img{
+.container-img1{
     width: 100%;
     height: 60%;
     border-top-left-radius: 20px;
@@ -36,7 +36,7 @@
     background-size: cover;
 }
 
-.container-info{
+.container-info1{
     width: 100%;
     height: 40%;
     padding: 10px;
@@ -47,7 +47,7 @@ h2{
     font-size: 25px;
 }
 
-.zona-c, .capaci-c, .precio-c, .dispo-c{
+.zona-c1, .capaci-c1, .precio-c1, .dispo-c1{
     font-size: 20px;
     font-weight: 300;
     color: rgb(58, 58, 58);
