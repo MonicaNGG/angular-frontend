@@ -22,8 +22,9 @@ export class FinderService {
     try {
       console.log( inmuebleParams )
       return this.http.get(`${ enviroment.BASE_URL}property/getAllProperties${inmuebleParams}`);
-    } catch (error) {
-      this.toast.showError('Error al buscar inmuebles.', 'Error');
+    } catch (error: any) {
+      console.error( error );
+      this.toast.showError( 'Error al buscar inmueble', 'Error');
       return error;
     }
   }

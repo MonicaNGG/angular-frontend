@@ -8,6 +8,6 @@ import { mainGuard } from './guards/main.guard';
 export const routes: Routes = [
     { path: 'login'     , component: LoginComponent                                     },
     { path: 'register'  , component: RegisterComponent                                  },
-    { path: 'main'      , component: MainComponent },//, canActivate: [ mainGuard ]          },
+    { path: 'main'      , component: MainComponent , canActivate: [ mainGuard ]          },
     { path: '**'        , redirectTo: 'main'                                           }
 ];
