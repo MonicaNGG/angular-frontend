@@ -1,0 +1,34 @@
+<div class="container">
+
+
+    <div class="noContain" *ngIf="properties.length == 0">
+        <h1>No se han encontrado inmuebles</h1>
+    </div>
+
+    <div *ngFor="let item of properties; let i = index">
+        
+        <div class="card" (click)="mostrarModal(i)">
+            <div class="container-img" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
+            </div>
+
+            <div class="container-info">
+                <br>
+                <h2>{{item.accommodationType}}</h2>
+                <br>
+                <hr>
+                <br>
+                <p class="zona-c">Zona {{item.zone}}</p>
+                <p class="capaci-c">Capacidad de personas {{item.numberPeople}}</p>   
+                <p class="precio-c">Precio por persona {{item.price | currency:'USD':'symbol':'1.0-0'}}</p>
+                <p class="dispo-c">Disponible {{item.entryDate | date: 'mediumDate'}} - {{item.exitDate | date: 'mediumDate'}}</p>                
+                <br>
+                <hr>
+                <br>
+                <p class="dispo-c">Servicio adicional: {{ item.additionalServices }}</p>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modalproperty></app-modalproperty>

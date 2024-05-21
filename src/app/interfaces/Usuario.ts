@@ -5,4 +5,4 @@ export interface Usuario{
     documentNumber: string,
     phone: string,
     email: string,
-  }
+}
