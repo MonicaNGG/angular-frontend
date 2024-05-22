@@ -82,7 +82,6 @@ export class MainComponent {
 
     if( this.buscador.value.entryDate !== null ){
       inmuebleParams['entryDate'] = this.buscador.value.entryDate;
-      inmuebleParams['entryDate'] = inmuebleParams['entryDate'].replace(/-/g, '/')
     }
 
     if( this.buscador.value.zone !== null ){
@@ -103,7 +102,6 @@ export class MainComponent {
 
     if( this.buscador.value.exitDate !== null ){
       inmuebleParams['exitDate'] = this.buscador.value.exitDate;
-      inmuebleParams['exitDate'] = inmuebleParams['exitDate'].replace(/-/g, '/')
     }
 
     if( this.buscador.value.numberPeople !== null ){
