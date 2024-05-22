@@ -1,4 +1,4 @@
-<div class="container1" *ngIf="item" (click)="cerrarModal()">
+<div class="container1" *ngIf="item">
     <div class="card1 animate__animated animate__fadeIn">
         <div class="container-img1" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
         </div>
@@ -19,5 +19,7 @@
             <p class="dispo-c1">Servicio adicional: {{ item.additionalServices }}</p>
             <br>
         </div>
+
+        <button class="close" (click)="cerrarModal()">X</button>
     </div>
 </div>

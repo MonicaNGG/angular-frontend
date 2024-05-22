@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Inmueble } from '../../../interfaces/Inmueble';
 import { CommonModule } from '@angular/common';
 import { ModalService } from '../../../services/modal.service';
+import { ToastService } from '../../../services/toast.service';
 
 @Component({
   selector: 'app-modalproperty',
@@ -15,7 +16,7 @@ export class ModalpropertyComponent {
 
   item?: Inmueble;  
 
-  constructor( private modalServ: ModalService ){}
+  constructor( private modalServ: ModalService, private toastSert: ToastService ){}
 
   ngOnInit(): void {
 
