@@ -1,12 +1,17 @@
-<div class="container1" *ngIf="item" (click)="cerrarModal()">
+<div class="container1" *ngIf="item">
     <div class="card1 animate__animated animate__fadeIn">
+        <button class="close" (click)="cerrarModal()">X</button>
         <div class="container-img1" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
         </div>
 
         <div class="container-info1">
-            <br>
-            <h2>{{item.accommodationType}}</h2>
-            <br>
+
+            <div class="title-cont">
+                <br>
+                <h2>{{item.accommodationType}}</h2>
+                <button class="reservar-btn" (click)="reserva()">Reservar</button>
+                <br>
+            </div>
             <hr>
             <br>
             <p class="zona-c1">Zona {{item.zone}}</p>
@@ -19,5 +24,6 @@
             <p class="dispo-c1">Servicio adicional: {{ item.additionalServices }}</p>
             <br>
         </div>
+
     </div>
 </div>
