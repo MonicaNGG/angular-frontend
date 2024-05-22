@@ -25,6 +25,15 @@ export class ModalpropertyComponent {
     })
   }
 
+  reserva(){
+    this.toastSert.showSuccess('Se ha reservado con exito: ' 
+                                + this.item?.accommodationType 
+                                + " en zona " 
+                                + this.item?.zone 
+                                + " de " 
+                                + this.item?.city, 'Reserva');
+    this.cerrarModal();
+  }
 
   cerrarModal(){
     this.item = null!;
