@@ -159,7 +159,7 @@ export class RegisterComponent {
       password: this.registroForm.get('password')?.value,
     }
 
-
+    console.log( usuario );
     this.registerUser( usuario )
   } 
 

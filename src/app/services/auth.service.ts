@@ -4,11 +4,15 @@ import { UserRegister } from '../auth/interfaces/UserRegister';
 import { ToastService } from './toast.service';
 import { UserLogin } from '../auth/interfaces/UserLogin';
 import { enviroment } from '../enviroment/enviroments';
+import { BehaviorSubject } from 'rxjs';
+import { User } from '../auth/interfaces/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  private usuarioIngresado = new BehaviorSubject<User>(null!);
 
   constructor( private http: HttpClient, private toastServ: ToastService ) { }
 
@@ -49,5 +53,8 @@ export class AuthService {
       return error;
     }
   }
-  
+
+  obtenerDatosCompartidos() {
+    return this.usuarioIngresado.asObservable();
+  }
 }
