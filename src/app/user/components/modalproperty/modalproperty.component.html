@@ -1,15 +1,20 @@
 <div class="container1" *ngIf="item">
-    <div class="card1 animate__animated animate__fadeIn">
+    <div class="card1 animate__animated animate__fadeIn" *ngIf="!showReserva">
         <button class="close" (click)="cerrarModal()">X</button>
         <div class="container-img1" [ngStyle]="{'background-image': 'url(' + item.image + ')'}">
         </div>
 
         <div class="container-info1">
-
             <div class="title-cont">
                 <br>
                 <h2>{{item.accommodationType}}</h2>
-                <button class="reservar-btn" (click)="reserva()">Reservar</button>
+                <input  placeholder="Numero de Personas" 
+                        min="1" [max]="item.numberPeople"
+                        type="number"
+                        class="inputNum"
+                        [(ngModel)]="numeroPersonas"
+                        (ngModelChange)="numPersonChange()">
+                <button class="reservar-btn"  (click)="reserva()">Reservar</button>
                 <br>
             </div>
             <hr>
@@ -21,9 +26,52 @@
             <br>
             <hr>
             <br>
+            
             <p class="dispo-c1">Servicio adicional: {{ item.additionalServices }}</p>
+                <div class="bottom-c">
+                <span class="title-llegada">LLEGADA</span>
+                                <input  type="date" 
+                                        class="input_date"
+                                        [(ngModel)]="llegada">
+
+                
+                <span class="title-llegada">SALIDA</span>
+                <input  type="date" 
+                        class="input_date"
+                        [(ngModel)]="salida">
+            </div>
+
+
             <br>
         </div>
+    </div>
 
+
+    <div class="card2" *ngIf="showReserva">
+        <button class="close" (click)="volver()">X</button>
+
+        <div class="container-info2">
+            <div class="subinforetro1">
+                <p class="tituloRetro">Su reserva en {{ item.accommodationType }} fue un éxito</p>
+                <p class="subretroti">Ubicado en {{ item.city }} zona {{ item.zone }}</p>
+                <hr>
+            </div>
+
+            <div class="subinforetro">
+
+                <p>Desde {{ llegada | date: 'mediumDate'}} hasta: {{ salida | date: 'mediumDate'}}
+                    para {{ numeroPersonas }} personas
+                </p>      
+                <br>          
+                <p>Durante {{ diasDiferencia }} dias 
+                donde el precio por noche (individual) es de: {{ item.price | currency:'USD':'symbol':'1.0-0' }}</p>
+                <br>
+                <hr>
+                <br>
+                <p>El total es de: {{ obtenerTotal()| currency:'USD':'symbol':'1.0-0' }}</p>
+            </div>
+        </div>
+
+        <div class="container-img2" [ngStyle]="{'background-image': 'url(' + item.image + ')'}"></div>
     </div>
 </div>
