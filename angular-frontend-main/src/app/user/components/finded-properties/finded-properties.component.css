@@ -1,0 +1,53 @@
+
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.card{
+    cursor: pointer;
+    width: 330px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 1px rgba(0,0,0,0.5);
+    margin: 10px;
+}
+
+.container-img{
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-info{
+    width: 100%;
+    height: 40%;
+    padding: 7px;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.zona-c, .capaci-c, .precio-c, .dispo-c{
+    font-size: 15px;
+    font-weight: 300;
+    color: gray;
+    margin-bottom: 5px;
+}

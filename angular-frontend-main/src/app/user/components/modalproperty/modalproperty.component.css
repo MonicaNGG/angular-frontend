@@ -1,0 +1,167 @@
+.container1{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card1{
+    background-color: white;
+    width: 35%;
+    height: 95%;
+    border-radius: 20px;
+    position: relative;
+}
+
+
+
+.container-img1{
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container-info1{
+    width: 100%;
+    height: 40%;
+    padding: 2%;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 100%;
+}
+
+.zona-c1, .capaci-c1, .precio-c1, .dispo-c1{
+    font-size: 100%;
+    font-weight: 300;
+    color: rgb(58, 58, 58);
+    margin-bottom: 5px;
+}
+
+.close{
+    position:absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+
+    z-index: 2;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    user-select: none;
+}
+
+.reservar-btn{
+    border: none;
+    background-color: lightgreen;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.title-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+    
+}
+
+/* Estilos de la reserva */
+
+.card2{
+    background-color: white;
+    width: 70%;
+    height: 70%;
+    border-radius: 20px;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.container-info2{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 5%;
+
+    justify-content: space-around;
+}
+
+.container-img2{
+    width: 40%;
+    height: 100%;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.inputNum{
+    width: 30%;
+    height: 100%;
+    border: 1px solid lightgreen;
+    margin-right: 5px;
+}
+
+.bottom-c{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.title-llegada{
+    font-size: 10px;
+    color   : rgb(58, 58, 58);
+}
+
+.tituloRetro{
+    font-size: 30px;
+    font-weight: 600;
+    
+}
+
+.subinforetro1{
+    height: 50%;
+}
+.subinforetro{
+    color: rgb(58, 58, 58);
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+.subretroti{
+    color: rgb(58, 58, 58);
+    font-size: 15px;
+    font-weight: 200;
+}
